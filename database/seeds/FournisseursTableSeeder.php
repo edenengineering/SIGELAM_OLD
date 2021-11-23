@@ -1,0 +1,121 @@
+<?php
+
+use Illuminate\Database\Seeder;
+
+class FournisseursTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+	{
+				
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'GEOCHIM' , 'adresse' => '651 47 27 98' , 'telephone' => '699 88 02 88' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'THIERRY']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'IBT MEDICAL' , 'adresse' => '' , 'telephone' => '671 05 84 31' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MLLE RAÏSSA MBOUEKAM']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'SGIC' , 'adresse' => '22 21 37 02' , 'telephone' => '677934087' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'ENDALE']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'PESSI MEDICAL' , 'adresse' => '' , 'telephone' => '77 59 60 57' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MR THIERRY NJIEPE']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'LAMAHOU' , 'adresse' => '' , 'telephone' => '77 72 97 80' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MR RUBEN']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'BST MEDICAL' , 'adresse' => '' , 'telephone' => '94 27 87 32' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MR PHILIPPE AYONG']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'BIO - HOSFRO' , 'adresse' => '22 12 82 80' , 'telephone' => '96 37 12 60' , 'site_web' => '' , 'statut' => '1' , 'fax' => '70 12 48 26' , 'email' => '70 12 48 26' , 'commercial' => 'MR JEAN FELINOU']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'MEDICAL PREUVE' , 'adresse' => '' , 'telephone' => '99 23 47 41' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MR JEAN MEKOUDJOU']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'MEDICAL DIAGNOSTIC' , 'adresse' => '' , 'telephone' => '99 50 43 73' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MR TSAWO']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'MEMO MEDICAL' , 'adresse' => '74 01 27 58' , 'telephone' => '99 32 23 12' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MR KAYO FOAGUAM']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'MEDICAL PLUS' , 'adresse' => '' , 'telephone' => '22 20 49 34' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MR KENMOGNE']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'APAKU' , 'adresse' => '' , 'telephone' => '99 47 89 25' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MR MATHIEW']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'TUMANS MEDICAL' , 'adresse' => '' , 'telephone' => '99 90 37 35' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MR BOSCO EKWELLE']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'MEDICAL INTERNATIONAL' , 'adresse' => '' , 'telephone' => '96 60 53 66' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MR CHRISTOPHE NGUEDIO']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'BIOPHARCAM' , 'adresse' => '677 72 97 80' , 'telephone' => '22 21 53 74' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MR RUBEN']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'REAMAT' , 'adresse' => '96 09 19 92' , 'telephone' => '22 00 05 14' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'SECRETARIAT / CLEMENT']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'SOCIETE  3 T SARL' , 'adresse' => '77 31 49 52' , 'telephone' => '22 31 65 77' , 'site_web' => '' , 'statut' => '1' , 'fax' => 'MBIDA DIEUDONNE' , 'email' => '77 76 10 68' , 'commercial' => 'MR THÉODORE DJIEYA']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'PML MEDICAL' , 'adresse' => '' , 'telephone' => '22 31 65 77' , 'site_web' => '' , 'statut' => '0' , 'fax' => '' , 'email' => '' , 'commercial' => '']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'BERNADETTE COMPUTER' , 'adresse' => '' , 'telephone' => '77 44 45 68' , 'site_web' => '' , 'statut' => '0' , 'fax' => '' , 'email' => '' , 'commercial' => 'MARCEL AIMÉ']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'PML MEDICAL' , 'adresse' => '' , 'telephone' => '.' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'HERVE']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'MEDI - BEST SARL' , 'adresse' => '' , 'telephone' => '96 32 31 32' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MLLE NADINE BILOUNGA ALINDA']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'INTER - MED SARL' , 'adresse' => '675 63 15 17' , 'telephone' => '696 52 49 24' , 'site_web' => '' , 'statut' => '1' , 'fax' => '99 54 99 39' , 'email' => '99 67 74 89' , 'commercial' => 'DR HOUOKAM. MICHELLE']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'MEDICALEX' , 'adresse' => '' , 'telephone' => '99 25 69 29' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MR NICOLAS AARON MABINGO']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'DIAGNOSTIC DISTRIBUTION' , 'adresse' => '79 84 45 99' , 'telephone' => '99 80 15 06' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MR MBOGNING LUCAS EKO']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'MEDICAM S.A' , 'adresse' => 'BP 8091/ 33 41 42 69' , 'telephone' => '99 41 15 18' , 'site_web' => '' , 'statut' => '1' , 'fax' => '(237) 33 41 42 71' , 'email' => 'MEDICAMSA@YAHOO.FR' , 'commercial' => 'MME TCHOUNGA MERLISE']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'STE G.B.C  SARL' , 'adresse' => '77 76 15 37' , 'telephone' => '22 23 42 08' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MR KAMTA  PAUL']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'LEADER PHARMA' , 'adresse' => '' , 'telephone' => '99 67 74 89' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MR ROGER']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'PROMACAM SARL' , 'adresse' => '' , 'telephone' => '99 32 30 33' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MR MINCHE HUMAN']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'PARTEC AFRIQUE CENTRALE' , 'adresse' => '78 00 69 30' , 'telephone' => '96 02 05 27' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MLLE NGO BATIIG DOROTHEE']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'CAMTEL' , 'adresse' => '' , 'telephone' => '22 22 02 53' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => '']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'ETS GODMANN GLASS' , 'adresse' => '' , 'telephone' => '75 62 81 24' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MR HERMANN']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'ETS SIEWE' , 'adresse' => '' , 'telephone' => '22 22 23 15' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => '']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'SNEC' , 'adresse' => '' , 'telephone' => '334339980' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => '']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'ORTHO SERVICES' , 'adresse' => '' , 'telephone' => '75 67 17 69' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'EVINA CLAUDE']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'ETS BERNADETTE COMPUTER' , 'adresse' => '' , 'telephone' => '77 44 45 68' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MARCEL AIMÉ']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'TECHNO-DIRECT' , 'adresse' => '' , 'telephone' => '22 22 07 60' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => '']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'CERBA FRANCE' , 'adresse' => '0033 134 402 020' , 'telephone' => '0033134402020' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'SECRETARIAT']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'METRO SECURITY' , 'adresse' => '' , 'telephone' => '22 22 87 81' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => '']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'CABINET AUDIT- COMPTABLE' , 'adresse' => '' , 'telephone' => '22 22 22 22' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'FOZEU JOACHIM']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'MEDICAL COMPAGNY' , 'adresse' => '75 55 94 73' , 'telephone' => '96 60 53 66' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MR NGUEDIO CHRISTOPHE']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'WAMBA ELI' , 'adresse' => '' , 'telephone' => '99 22 14 86' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => '']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'SONEL' , 'adresse' => '' , 'telephone' => '77 11 77 11' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => '']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'IMPOTS' , 'adresse' => '' , 'telephone' => '0000000000000' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'KWEDI CECILE']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'PHARMACIE DU 20 MAI' , 'adresse' => 'YAOUNDE' , 'telephone' => '22 23 92 88' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'TUBERTEST']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'SANTE ET VIE SARL' , 'adresse' => '76 69 15 95' , 'telephone' => '97 21 17 01' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MEKOUONTCHOU JACQUELINE']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'SOREACAM' , 'adresse' => '' , 'telephone' => '99 54 99 39' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MANGA PASCAL']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'KAMPAS MEDICAL SARL' , 'adresse' => '77 76 15 37' , 'telephone' => '99 82 88 90' , 'site_web' => '' , 'statut' => '1' , 'fax' => '22 23 42 08' , 'email' => '' , 'commercial' => 'MBOGNE KAMPTA PASCAL']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'WNB' , 'adresse' => '' , 'telephone' => '22 13 32 32' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => '']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'ETS WNB' , 'adresse' => '22 13 32 32' , 'telephone' => '70 90 34 34' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'NICANOR TCHOKOKAM']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'NAT - MED   LTD' , 'adresse' => '75 21 52 96' , 'telephone' => '90 24 34 82' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'KOMEYA FOATIN']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'AZ COMPUTER' , 'adresse' => '12575' , 'telephone' => '22230442' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => '']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'KAMGANG ANETTE' , 'adresse' => '' , 'telephone' => '74 17 47 80' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MME KAMGANG ANETTE']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'AZ COMPUTER' , 'adresse' => '12575 YAOUNDE' , 'telephone' => '22230442' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => '']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'KWDIAGNOSTICS' , 'adresse' => '90 04 00 73' , 'telephone' => '99 22 14 86' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'WAMBA ELIS']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'C2L' , 'adresse' => '' , 'telephone' => '90 28 81 21' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'ASSONFACK FLORENCE']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'PHARMACIE DE GAULE' , 'adresse' => 'DOUALA' , 'telephone' => '00 00 00 00' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'TUBERTEST']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'LAMEPRO SARL' , 'adresse' => '' , 'telephone' => '77 77 04 85' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'NGO BISSE CHANTAL THERESE']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'ETS BIO - MEDIC' , 'adresse' => 'BP : 31089 YDÉ' , 'telephone' => '96 18 28 33' , 'site_web' => '' , 'statut' => '1' , 'fax' => '72 99 78 49' , 'email' => '' , 'commercial' => 'TEKOUDJOU CLOVICE']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'REAMED' , 'adresse' => '74 52 10 87' , 'telephone' => '94 37 64 21' , 'site_web' => 'FULL BIOMEDICAL CENTER' , 'statut' => '1' , 'fax' => '' , 'email' => 'MAWE.DANY@YAHOO.FR' , 'commercial' => 'MAWE DANY']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'MEDLAB' , 'adresse' => '77 30 10 24' , 'telephone' => '93 87 45 13' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => 'RMINDJOU@YAHOO.FR' , 'commercial' => 'MINDJOU ROBERT']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'MANAGIS CONSULTING' , 'adresse' => '' , 'telephone' => '22 71 75 47' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'CABINET COMPTABLE']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'CODIMED' , 'adresse' => '97 90 32 90' , 'telephone' => '91 93 31 35' , 'site_web' => '' , 'statut' => '1' , 'fax' => '33 01 45 24' , 'email' => '22 16 03 89' , 'commercial' => 'ADELAÏDE TCHO-MBE']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'BIORAMED' , 'adresse' => '' , 'telephone' => '697 17 15 24' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'ELANG BAKOUME MODESTE']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'AFRICA DISTRIMED' , 'adresse' => '77 59 08 43' , 'telephone' => '99 78 25 79' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => 'AFRICADISTRIMED@YAHOO.CO.UK' , 'commercial' => 'MBOKOU EPSE TAKAM ROSINE']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'CAMREA SARL' , 'adresse' => 'BP : 8243' , 'telephone' => '96 53 34 87' , 'site_web' => '' , 'statut' => '1' , 'fax' => 'OBOUNOU CECILE MIREI' , 'email' => '96 24 35 29 / 70 60 42 80' , 'commercial' => 'NITCHEU EUGENE']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'K.O BUSINESS CENTER SARL' , 'adresse' => '677 40 43 33' , 'telephone' => '691 46 26 28' , 'site_web' => '75 42 79 40' , 'statut' => '1' , 'fax' => '22 01 50 26' , 'email' => '99 16 18 95' , 'commercial' => 'JEAN BOSCO TOUE/FOTEPONGFLORIA']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'PHARMACIE MINDILI' , 'adresse' => '95 71 84 87' , 'telephone' => '22 30 22 80' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'VASELINE PURE MONOT (MR ATEBA)']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'GLOBOTECH-BIOMEDICAUX' , 'adresse' => '' , 'telephone' => '77 33 91 28' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'ABDON']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'LMT GROUPE' , 'adresse' => '' , 'telephone' => '22 20 78 55' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => '']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'ETS LE CEDRE' , 'adresse' => '' , 'telephone' => '677 14 15 29' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => '']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'ACS SECURITE' , 'adresse' => '222 63 37 32' , 'telephone' => '698 05 90 31' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => '']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'GLOBAL HEALTH PROVIDER' , 'adresse' => '' , 'telephone' => '696091992' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'CLEMENT TAGNE']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'POLYPHARMA SARL' , 'adresse' => '33404573' , 'telephone' => '22232012' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => '']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'GENIE EQUATORIAL FROID- FULBER' , 'adresse' => '' , 'telephone' => '675 30 29 88' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => '']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'SOFT PRINT' , 'adresse' => '' , 'telephone' => '000000000' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => '00000000']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'TRANS - CAMEROON MEDICALS SARL' , 'adresse' => '680 19 52 33' , 'telephone' => '690 20 21 55' , 'site_web' => 'TCMEDICLS@YAHOO.FR' , 'statut' => '1' , 'fax' => '' , 'email' => 'CHRISFOGANG2005@YAHOO.FR' , 'commercial' => 'DR FOGANG J. CHRISTOPHE']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'BIOECOMS SARL' , 'adresse' => '' , 'telephone' => '222 22 02 55' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'NGANGOUM APPOLOS']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'CNPS' , 'adresse' => '' , 'telephone' => '00 000 000' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'KWEDI']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'PHARMACIE OBILI CHAPELLE' , 'adresse' => 'BP : 1918 YDE - CMR' , 'telephone' => '694 46 74 02' , 'site_web' => 'PHARMOBILI@YAHOO.COM' , 'statut' => '1' , 'fax' => '222 31 81 22' , 'email' => 'MTCHOKOKAM@YAHOO.COM' , 'commercial' => 'DR MIREILLE TCHOKOKAM']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'LABORATOIRE DU CENTRE' , 'adresse' => '' , 'telephone' => '000000000' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => 'LABORATOIRECENTRE@YAHOO.FR' , 'commercial' => 'MME EDANG']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'ETS LE CEDRE' , 'adresse' => '' , 'telephone' => '677 14 15 29' , 'site_web' => '' , 'statut' => '0' , 'fax' => '' , 'email' => '' , 'commercial' => '']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'HERMANN - MEDITECH' , 'adresse' => '222003008' , 'telephone' => '242067394' , 'site_web' => 'HERMANN-MEDITECH.COM' , 'statut' => '1' , 'fax' => '' , 'email' => 'ASSISTANTE1.DIRECTION@HERMANN-' , 'commercial' => 'ANNIE TAMEKOUE']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'DNA SOLUTIONS' , 'adresse' => '' , 'telephone' => '000000' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'E.IGLESIAS']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'INNOV\'A ASSURANCE SARL' , 'adresse' => '20178 YAOUNDE' , 'telephone' => '222145662' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => '']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'SERTECH' , 'adresse' => '694 33 55 69' , 'telephone' => '676 38 39 18' , 'site_web' => '' , 'statut' => '1' , 'fax' => '243 28 34 61' , 'email' => '' , 'commercial' => 'MBANG MICHEL']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'SAAR ASSURANCES' , 'adresse' => '' , 'telephone' => ';;;;;;;;;;;;;;' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => '']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'LOYER LABORATOIRE' , 'adresse' => '' , 'telephone' => '222232524' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => '']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'PHARMACIE NJO-NJO DOUALA' , 'adresse' => '243 78 02 82' , 'telephone' => '237 233 42 39 25' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MME S. DOBILL DOUALA']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'BIO HOSFRO AUTOMATE NUMERATION' , 'adresse' => '' , 'telephone' => '696 37 12 60' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MR FELINOU JEAN']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'KLASS COMPUTER LTD' , 'adresse' => '' , 'telephone' => '675 14 06 95' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => '']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'BIOCOMPAGNIE' , 'adresse' => '' , 'telephone' => '695 93 64 45' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'RUBEN']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'ONG VIE ET SANTE' , 'adresse' => '697 904 570' , 'telephone' => '677 204 739' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MME JACQUELINE']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'ETS SHALOM AFRICA' , 'adresse' => '' , 'telephone' => '699677489' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MBOG PAUL ROGER']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'GEOCHIM COMMANDE SPECIALE' , 'adresse' => '' , 'telephone' => '00000' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'MOHAMED']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'KENGS PHARMA' , 'adresse' => '654 72 10 53' , 'telephone' => '699 54 56 52' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => '']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'BIOMEDICAL SOLUTIONS LTD' , 'adresse' => '' , 'telephone' => '675322450' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'ROY NEBA']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'SITRAM' , 'adresse' => '' , 'telephone' => '690032935' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'KANYON']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'UCE GROUPA' , 'adresse' => '' , 'telephone' => '670104042' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'EYOKINACK FRANCOIS']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'ETS BLESSING' , 'adresse' => '' , 'telephone' => '677 292 935' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => '']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'BALLA BALLA SERGE' , 'adresse' => '' , 'telephone' => '00000000000' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => 'PAROISSE DE LOG-HEGA']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'ETS. INGENIERIE ET BIOMEDICAL' , 'adresse' => '' , 'telephone' => '677 57 50 19' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => '']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'ETS KAMI &amp; FILS' , 'adresse' => 'BP 15280 YAOUNDE' , 'telephone' => '693115581' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => '']);
+		DB::table('fournisseurs')->insert(['raison_sociale' =>'ETS FUSION' , 'adresse' => 'YAOUNDE' , 'telephone' => '674736212' , 'site_web' => '' , 'statut' => '1' , 'fax' => '' , 'email' => '' , 'commercial' => '']);
+
+
+    }
+}

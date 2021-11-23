@@ -1,0 +1,952 @@
+ <script src="{{ URL::asset('js/jquery.min.js') }}" ></script>  
+     <script src="{{ URL::asset('js/dataTables.min.js') }}" ></script>
+  <script type="text/javascript">
+     var tab_tube = {!! $tubes->toJson()  !!};
+      
+    
+</script>
+ <div id="infosExamen" class="modal fade" role="dialog" style="width: 100%; overflow-y:none">
+ <div class="modal-dialog  modal-lg">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header" style="background-color:rgb(103,184,120); color:white;">
+        <button type="button" id="clear2" class="close" data-dismiss="modal">&times;</button>
+        <h2 id="titre" class="modal-title" >Informations sur les examens</h2>
+      </div>
+      <div class="modal-body">
+        	<ul class="nav nav-tabs">
+			  <li class="active"><a data-toggle="tab" href="#rendu">Rendu</a></li>
+			  <li><a data-toggle="tab"   href="#interpretation">Interpretation </a></li>
+			 
+			</ul>
+
+			<div class="tab-content">
+				<div id="rendu" style="padding-top:30px;" class="tab-pane fade in active"  >
+					
+						
+					   
+			            <div class="row">
+			            	<button class="btn btn-primary"><i class="glyphicon glyphicon-add" ></i> Ajouter</button>
+			            </div>
+			            <div class="table-responsive text-center">
+			            	{{ csrf_field() }}
+			            
+					    <table id="tabInExam"  class="table table-striped table-borderless">
+                    
+		                     
+		                    <thead style="background-color: LightSlateGray; color:white;  -webkit-box-shadow: 0px -4px 3px rgba(50, 50, 50, 0.75);-moz-box-shadow:    0px -4px 3px rgba(50, 50, 50, 0.75);box-shadow:0px -4px 3px rgba(50, 50, 50, 0.75);">
+		                      <tr  style ="heigth:10px;">
+		                        <th>Libellé</th>
+		                        <th>Examen</th>
+		                        <th>Max</th>
+		                        <th>Min</th>
+		                        <th>Unité</th>
+		                        <th>Ordre</th>
+		                        <th>Actions</th>
+		                      </tr>
+		                      
+		                    </thead>
+		                    @foreach($tubes as $item)
+							<tr class="item{{$item->id}}">
+								<td>{{$item->id}}</td>
+								<td>{{$item->libelle_tube}}</td>
+								<td>{{$item->statut}}</td>
+								<td>{{$item->created_at}}</td>
+								<td>{{$item->statut}}</td>
+								<td>{{$item->created_at}}</td>
+								<td>{{$item->updated_at}}</td>
+								<td><button class="edit-modal btn btn-info"
+										data-info="{{$item->id}},{{$item->libelle_tube}},{{$item->statut}},{{$item->created_at}},{{$item->updated_at}}">
+										<span class="glyphicon glyphicon-edit"></span> Edit
+									</button>
+									<button class="delete-modal btn btn-danger"
+										data-info="{{$item->id}},{{$item->libelle_tube}},{{$item->statut}},{{$item->created_at}},{{$item->updated_at}}">
+										<span class="glyphicon glyphicon-trash"></span> Delete
+									</button></td>
+							</tr>
+							@endforeach
+		                   
+		                  </table>
+		                 </div>
+				</div>
+	<div id="myModal" class="modal fade" role="dialog">
+		<div class="modal-dialog">
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" id="mymodalC">&times;</button>
+					<h4 class="modal-title"></h4>
+
+				</div>
+				<div class="modal-body">
+					<form class="form-horizontal" role="form">
+						
+						<input type="hidden" class="form-control" id="fid" disabled>
+						
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="libelle_tube">Libelle Tube</label>
+							<div class="col-sm-10">
+								<input type="name" class="form-control" id="libelle_tube">
+							</div>
+						</div>
+						<p class="libelle_tube_error error text-center alert alert-danger hidden"></p>
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="statut">Statut</label>
+							<div class="col-sm-10">
+								<input type="name" class="form-control" id="statut">
+							</div>
+						</div>
+						<p class="statut_error error text-center alert alert-danger hidden"></p>
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="dateC">Created At</label>
+							<div class="col-sm-10">
+								<input type="date" class="form-control" id="dateC">
+							</div>
+						</div>
+						<p class="dateC_error error text-center alert alert-danger hidden"></p>
+						
+						<div class="form-group">
+							<label class="control-label col-sm-2" for="dateU">Updated At:</label>
+							<div class="col-sm-10">
+								<input type="date" class="form-control" id="dateU">
+							</div>
+						</div>
+						<p
+							class="dateU_error error text-center alert alert-danger hidden"></p>
+					</form>
+					<div class="deleteContent">
+						Are you Sure you want to delete <span class="dname"></span> ? <span
+							class="hidden did"></span>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn actionBtn" data-dismiss="modal">
+							<span id="footer_action_button" class='glyphicon'> </span>
+						</button>
+						<button type="button" class="btn btn-warning" id="mymodalC">
+							<span class='glyphicon glyphicon-remove'></span> Close
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+				<div id="interpretation"  class="tab-pane fade">
+					<form method="post" action="" id="formInter">
+						 <div class="form-group row" style="margin-top:30px;">
+						    <label class="control-label col-sm-2" for="lib">Libellé :</label>
+						    <div class="col-sm-8"> 
+						      <input type="text" class="form-control" id="lib" name="lib" >
+						    </div>
+						    
+					    </div>
+					    <div class="table-wrapper1">
+					     <table id="tabInter" style="width:100%; heigth:60%" class="table table-striped table-responsive">
+                    
+		                     <!-- rgb(150,150,150)-->
+		                    <thead style="background-color: LightSlateGray; color:white;  -webkit-box-shadow: 0px -4px 3px rgba(50, 50, 50, 0.75);-moz-box-shadow:    0px -4px 3px rgba(50, 50, 50, 0.75);box-shadow:0px -4px 3px rgba(50, 50, 50, 0.75);">
+		                      <tr  style ="heigth:10px;">
+		                      	<th></th>
+		                        <th>Libellé</th>
+		                        <th>Examen</th>
+		                        
+		                      </tr>
+		                      
+		                    </thead>
+		                    <tbody>
+		                       <tr class="clickable">
+		                       	<td>sdsd</td>
+		                       	<td>dsdsf</td>
+		                      </tr> 
+		                    </tbody>
+		                  </table>
+		                   <div class="pagination text-center" style="width:100%">
+                        <div class="row">
+                            <div class="pagination-buttons col-sm-5">
+                                <a href="#" class="btn btn-primary  to-first disabled">« DEBUT</a> <a href="#" class="btn btn-primary to-previous"><i class="glyphicon glyphicon-chevron-left"></i> PRECEDENT</a>
+                            </div>
+                            <div class="pagination-pages col-sm-3">
+                            </div>
+                            <div class="pagination-buttons col-sm-4">
+                                <a href="#" class="btn btn-primary to-next ">SUIVANT <i class="glyphicon glyphicon-chevron-right"></i></a> <a href="#" class="btn btn-primary to-last disabled">FIN »</a>
+                            </div>
+                        </div>
+                      </div>
+		                  </div>
+		                  <div class="form-group row">
+		                  		<button style="margin-left:5px" class="btn btn-success col-sm-2"><i class="glyphicon glyphicon-ok-sign"></i>Valider</button>
+		                  		<button style="margin-right:5px" class="btn btn-primary col-sm-2 col-sm-offset-3"><i class="glyphicon glyphicon-plus-sign"></i>Ajouter</button>
+		                  		<button style="margin-right:5px" id="btnEditInter" class="btn btn-primary col-sm-2"><i class="glyphicon glyphicon-edit"></i>Modifier</button>
+		                  		<button style="margin-right:5px" class="btn btn-danger col-sm-2"><i class="glyphicon glyphicon-remove-sign"></i>Supprimer</button>
+		                  </div>
+					</form>
+				</div>
+			</div>
+      </div>
+      <div class="modal-footer">
+        <button data-dismiss="modal" class="btn btn-primary" ><i class="glyphicon glyphicon"></i>Fermer</button>
+      </div>
+    </div>
+
+</div>
+     <div id="editInter" class="modal fade" role="dialog" style="width: 100%">
+	  <div class="modal-dialog modal-lg">
+
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header" style="background-color:rgb(103,184,120); color:white;">
+	        <button type="button" id="clear1" class="close CloseEditInt">&times;</button>
+	        <h2 id="titre" class="modal-title" >Enregistrement d'une nouvelle interpretation</h2>
+	      </div>
+	      <div class="modal-body">
+	        	<form method="post" action="" id="form_mod_inter">
+						<div class="form-group row" style="margin-top:30px;">
+						    <label class="control-label col-sm-2" for="libelle">Libelé :</label>
+						    <div class="col-sm-8"> 
+						      <textarea rows="4" class="form-control" id="libelle" name="libelle"></textarea> 
+						    </div>
+						    
+						    
+					    </div>
+			
+					</form>
+	      </div>
+	      <div class="modal-footer">
+							
+					<button  type="submit" form="form_mod_inter" id="send" class="btn btn-success"><i class="fa fa-check"></i>OK</button>
+					
+					<button type="button"  class=" btn btn-success CloseEditInt"><i class="fa fa-"></i>Annuler</button>
+	        				
+	      </div>
+	    </div>
+
+	  </div>
+	</div>
+	<div id="editInExamen" class="modal fade" role="dialog" style="width: 100%">
+	  <div class="modal-dialog">
+
+	    <!-- Modal content-->
+	    <div class="modal-content">
+	      <div class="modal-header" style="background-color:rgb(103,184,120); color:white;">
+	        <button type="button" id="clear3" class="close CloseEdit" >&times;</button>
+	        <h2 id="titre" class="modal-title" >Enregistrement d'un nouveau rendu</h2>
+	      </div>
+	      <div class="modal-body">
+	        	<form method="post" action="" id="form_mod_rendu">
+						<div class="form-group row" style="margin-top:30px;">
+						    <label class="control-label col-sm-2 text-left" for="libelle">Libelé :</label>
+						    <div class="col-sm-8"> 
+						      <input type="text" class="form-control" id="libelle" name="libelle" >
+						    </div>
+						    
+						   
+					    </div>
+					    <div class="form-group row" style="margin-top:30px;">
+						    <label class="control-label col-sm-2 text-left" for="code_examen">Examen :</label>
+						    <div class="col-sm-8"> 
+						      <select id="code_examen" name="code_examen" class="form-control" >
+                                              
+                       		 </select>
+						    </div>
+						    
+						   
+					    </div>
+					    <div class="form-group row">
+						    <label class="control-label col-sm-2 text-left" for="max">Max :</label>
+						    <div class="col-sm-3"> 
+						      <input type="number" class="form-control" id="max" name="max" >
+						    </div>
+						     <label class="control-label col-sm-2 text-left" for="min">Min :</label>
+						    <div class="col-sm-3"> 
+						      <input type="number" class="form-control" id="min" name="min" >
+						    </div>
+						    
+					    </div>
+					     <div class="form-group row">
+						    <label class="control-label col-sm-2" for="ordre">Ordre:</label>
+						    <div class="col-sm-3"> 
+						      <input type="number" class="form-control" id="ordre" name="ordre" >
+						    </div>
+
+						    <label class="control-label col-sm-2" for="unite">Unité :</label>
+						    <div class="col-sm-3"> 
+						      <input type="text" class="form-control" id="unite" name="unite" >
+						    </div>
+					    </div>
+					     <div class="form-group row">
+						    
+						    <label class="control-label col-sm-2 text-left">Element Statique :</label>
+						     <label class="control-label col-sm-2" ><input type="radio" value="non" checked="checked" name="eltSta"> Non</label>
+						     <label class="control-label col-sm-2" ><input type="radio" value="oui" name="eltSta"> Oui</label>
+						     <label class="control-label col-sm-2 text-left" for="abr">Titre :</label>
+						    
+						     <label class="control-label col-sm-2" ><input type="radio" value="non" checked="checked" name="titre_examen"> Non</label>
+						     
+						     <input type="hidden" name="id_rendu" value="">
+						     <label class="control-label col-sm-2" ><input type="radio" value="oui" name="titre_examen"> Oui</label>
+						    
+					    </div>
+					    <div class="form-group row">
+					    	<label class="control-label col-sm-2 text-left" for="abr">Gras :</label>
+						     <label class="control-label col-sm-2" ><input type="radio" value="non" checked="checked" name="gras"> Non</label>
+						     <label class="control-label col-sm-2" ><input type="radio" value="oui" name="gras"> Oui</label>
+						    
+					    </div>
+					    
+					</form>
+	        	
+	      </div>
+	      <div class="modal-footer">
+							
+					<button  type="submit" form="form_mod_examen" id="send" class="btn btn-success"><i class="fa fa-check"></i>OK</button>
+					
+					<button type="button"  class=" btn btn-success CloseEdit"><i class="fa fa-"></i>Annuler</button>
+	        				
+	      </div>
+	    </div>
+
+	  </div>
+	</div>
+	<div id="del_rendu" class="modal fade" role="dialog">
+                  <div class="modal-dialog modal-lg" style="width:80%">
+
+                    <div class="modal-content">
+                      <div class="modal-header" style="background-color:rgb(103,184,120); color:white;">
+                        
+                        <h2 id="titre1" class="modal-title" >Supprimer un Rendu</h2>
+                      </div>
+                      <div class="modal-body">
+                        <form method="post" id="form-rendu-del" action="" >
+                            {{ csrf_field() }}
+                            <h3 id="t-del"></h3>
+                            <input type="hidden" id="id_sup" name="id_rendu" value="">
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="submit" form="form-rendu-del" class="btn btn-success" >OUI</button>
+                        <button id="clearR"  class="btn btn-success" >NON</button>
+                      </div>
+                    </div>
+                  </div>
+     </div>
+     <div id="del_inter" class="modal fade" role="dialog">
+                  <div class="modal-dialog modal-lg" style="width:80%">
+
+                    <div class="modal-content">
+                      <div class="modal-header" style="background-color:rgb(103,184,120); color:white;">
+                        
+                        <h2 id="titre1" class="modal-title" >Supprimer une Interpretation</h2>
+                      </div>
+                      <div class="modal-body">
+                        <form method="post" id="form-inter-del" action="" >
+                            {{ csrf_field() }}
+                            <h3 id="t-del"></h3>
+                            <input type="hidden" id="id_sup" name="id_inter" value="">
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="submit" form="form-inter-del" class="btn btn-success" >OUI</button>
+                        <button id="clearI"  class="btn btn-success" >NON</button>
+                      </div>
+                    </div>
+                  </div>
+     </div>
+        
+    
+ <script src="{{ URL::asset('js/jquery.min.js') }}" ></script> 
+ <script src="{{ URL::asset('js/dataTables.min.js') }}" ></script>
+		<script type="text/javascript">
+		
+			 $(document).ready(function(){
+
+			 	 $('#tabInExam').dataTable({
+			        "aLengthMenu": [[5, 10, 15, -1], [5, 10, 15, "All"]],
+			        "iDisplayLength": 5
+			    });
+		 	  $(document).on('click', '.edit-modal', function() {
+		        $('#footer_action_button').text(" Update");
+		        $('#footer_action_button').addClass('glyphicon-check');
+		        $('#footer_action_button').removeClass('glyphicon-trash');
+		        $('.actionBtn').addClass('btn-success');
+		        $('.actionBtn').removeClass('btn-danger');
+		        $('.actionBtn').removeClass('delete');
+		        $('.actionBtn').addClass('edit');
+		        $('.modal-title').text('Edit');
+		        $('.deleteContent').hide();
+		        $('.form-horizontal').show();
+		        var stuff = $(this).data('info').split(',');
+		        fillmodalData(stuff)
+		        $("#myModal").modal({
+		                    keyboard: false,
+		                    show : true,
+		                    backdrop: "static",
+		            });
+		    });
+		 	  $('#mymodalC').click(function(){
+		   		$("#myModal").modal("hide");
+		   	 });
+		    $(document).on('click', '.delete-modal', function() {
+		        $('#footer_action_button').text(" Delete");
+		        $('#footer_action_button').removeClass('glyphicon-check');
+		        $('#footer_action_button').addClass('glyphicon-trash');
+		        $('.actionBtn').removeClass('btn-success');
+		        $('.actionBtn').addClass('btn-danger');
+		        $('.actionBtn').removeClass('edit');
+		        $('.actionBtn').addClass('delete');
+		        $('.modal-title').text('Delete');
+		        $('.deleteContent').show();
+		        $('.form-horizontal').hide();
+		        var stuff = $(this).data('info').split(',');
+		        $('.did').text(stuff[0]);
+		        $('.dname').html(stuff[1] +" "+stuff[2]);
+		        $("#myModal").modal({
+		                    keyboard: false,
+		                    show : true,
+		                    backdrop: "static",
+		            });
+		    });
+
+		function fillmodalData(details){
+		    $('#fid').val(details[0]);
+		    $('#libelle_tube').val(details[1]);
+		    $('#statut').val(details[2]);
+		    $('#dateC').val(details[3]);
+		    $('#dateU').val(details[4]);
+		    
+		}
+
+		    
+			 	function  clickable() {
+              
+              if($(this).hasClass('success')){
+
+                $(this).removeClass('success'); 
+              } else {
+                $(this).addClass('success').siblings().removeClass('success');
+              }
+            }
+             $("#clearR").click(function() {
+
+              $("#del_rendu").modal("hide");
+        	});
+             $("#clearI").click(function() {
+
+              $("#del_inter").modal("hide");
+        	});
+			  $("#tabInExam").on('click', '.clickable', clickable);
+			 
+            $("#tabInter").on('click', '.clickable',clickable);
+
+             $('#tabInter').on('dblclick', 'tr', function(event) {
+		            
+		            $("#editInter").modal({
+		                    keyboard: false,
+		                    show : true,
+		                    backdrop: "static",
+		            });
+		            
+
+		    });
+		  $('#tabInExam').on('dblclick', 'tr', function(event) {
+		            
+		            $("#editInExamen").modal({
+		                    keyboard: false,
+		                    show : true,
+		                    backdrop: "static",
+		            });
+		            
+
+		    });
+		  
+		    $("#btnEditInter").click(function(){
+		   			 $("#editInter").modal({
+		                    keyboard: false,
+		                    show : true,
+		                    backdrop: "static",
+		            });
+		   });
+		   $("#btnAddR").click(function(){
+		   			 $("#editInExamen").modal({
+		                    keyboard: false,
+		                    show : true,
+		                    backdrop: "static",
+		            });
+		   });
+		   $('.CloseEdit').click(function(){
+		   		$("#editInExamen").modal("hide");
+		   });	 
+
+		   $('.CloseEditInt').click(function(){
+		   		$("#editInter").modal("hide");
+		   });	 
+
+
+		});
+          $("#clear3").click(function() {
+              $(":input:not([type=hidden])").val('');
+             
+        });
+ 			$('#editInExamen').on('shown.bs.modal', function (){
+                                        
+                                  //load_tab1();
+                                  //load_tab2();
+                                   
+                            });
+                            function dateDay(time) {
+
+                            var todate=new Date(time).getDate();
+                            todate = String(todate);
+                            if(todate.length == 1){
+                                todate = '0'+todate;
+                            }
+                            var tomonth=new Date(time).getMonth()+1;
+                            tomonth = String(tomonth);
+                            if(tomonth.length == 1){
+                                tomonth = '0'+tomonth;
+                            }
+                            var toyear=new Date(time).getFullYear();
+                                return toyear+'-'+tomonth+'-'+todate;
+                                
+                            };
+                           function load_tab1(){
+                              var oday=[];
+                                 var timestamp = new Date().getTime();
+                                 timestamp= dateDay(timestamp);
+                                 
+                                 for (var i = 0; i < tab_rendus.length; i++) {
+                                          var str = String(tab_rendus[i].created_at).split(" "); 
+                                          
+                                          if (str[0] == timestamp ){
+                                                
+                                                oday.push(tab_rendus[i]);
+                                          }
+                                    }
+                                     var windowHeight = window.innerHeight;
+                                        
+                                       
+                                        
+                                        nbMax = 3;
+                                        
+                                         var rowTemplate = '<tr class=\'clickable\' >' +
+                                                '<td><a id=\'<%this.id%> style=\'cursor:pointer\'><%this.libelle_examen%></a></td>' +
+                                                '<td><%this.code_examen%></td>' +
+                                                '<td><%this.max%> </td>' +
+                                                '<td><%this.min%> </td>' +
+                                                '<td><%this.unite%> </td>' +
+                                                '<td><%this.ordre%> </td>' +
+                                                '</tr>';
+                                         
+                                         $('#table-wrapper').renderTable({
+                                            template: rowTemplate,
+                                            data: oday,
+                                            pagination: {
+                                            rowPageCount: Math.trunc(nbMax) // maximum rows per one page
+                                            }
+                                          });
+                                         var table = document.getElementById('tabInExam');
+
+                                        var rowLength = table.rows.length;
+                                       
+                                        for(var i=0; i<tab_rendus.length ; i++){
+                                          var row = table.rows[i+1];
+
+                                          
+
+                                       
+                                              
+                                            var cell = row.cells[1].innerHTML;
+                                            
+                                            for(var y=0;y < tab_examen.length;y++){
+                                                 if (tab_examen[y].id == cell){
+                                                      table.rows[i].cells[1].innerHTML = tab_examen[y].libelle_examen;
+                                                        break;
+                                                  }                                                  
+                                            }
+                                            
+                                          }
+                                           
+
+
+                            }
+                             function load_tab2(){
+                              var oday=[];
+                                 var timestamp = new Date().getTime();
+                                 timestamp= dateDay(timestamp);
+                                 
+                                 for (var i = 0; i < tab_inter.length; i++) {
+                                          var str = String(tab_inter[i].created_at).split(" "); 
+                                          
+                                          if (str[0] == timestamp ){
+                                                
+                                                oday.push(tab_inter[i]);
+                                          }
+                                    }
+                                     var windowHeight = window.innerHeight;
+                                        
+                                       
+                                        
+                                        nbMax = 3;
+                                        
+                                         var rowTemplate = '<tr class=\'clickable\' >' +
+                                                '<td><a id=\'<%this.id%> style=\'cursor:pointer\'><%this.libelle_interpretation%></a></td>' +
+                                                '<td><%this.code_examen%></td>' +
+                                                '</tr>';
+                                         
+                                         $('#table-wrapper1').renderTable({
+                                            template: rowTemplate,
+                                            data: oday,
+                                            pagination: {
+                                            rowPageCount: Math.trunc(nbMax) // maximum rows per one page
+                                            }
+                                          });
+                                        
+                              var table = document.getElementById('tabInter');
+
+                                var rowLength = table.rows.length;
+                               
+                                for(var i=0; i<tab_inter.length ; i++){
+                                  var row = table.rows[i+1];
+
+                                  
+
+                                
+                                    var cell = row.cells[1].innerHTML;
+                                    
+                                    for(var y=0;y < tab_examen.length;y++){
+                                         if (tab_examen[y].id == cell){
+                                              table.rows[i].cells[1].innerHTML = tab_examen[y].libelle_examen;
+                                                break;
+                                          }                                                  
+                                    }
+                                    
+                                  }
+
+                            }
+		/*	
+         $('#editInExamen').on('hide.bs.modal', function () {
+               tab_rendus = $.parseJSON($.ajax({
+                            
+                            url:  $('#form_mod_rendu').attr('action'),
+                            dataType: "json", 
+                            async: false
+                        }).responseText);
+                       
+                       
+                       
+            });
+          $('#editInter').on('hide.bs.modal', function () {
+               tab_inter = $.parseJSON($.ajax({
+                            
+                            url:  $('#form_mod_inter').attr('action'),
+                            dataType: "json", 
+                            async: false
+                        }).responseText);
+                       
+                       
+                       
+            });
+          */
+            $('#del_rendu').on('hide.bs.modal', function () {
+                
+                tab_rendus = $.parseJSON($.ajax({
+                            
+                            url:  $('#form_mod_rendu').attr('action'),
+                            dataType: "json", 
+                            async: false
+                        }).responseText);
+                       
+                      
+                       
+            });
+            $('#del_inter').on('hide.bs.modal', function () {
+                
+                tab_inter = $.parseJSON($.ajax({
+                            
+                            url:  $('#form_mod_inter').attr('action'),
+                            dataType: "json", 
+                            async: false
+                        }).responseText);
+                       
+                      
+                       
+            });
+      $('#form_mod_rendu').on('submit', function(e) {
+        e.preventDefault(); 
+        
+        var $this = $(this);
+        
+        
+            $.ajax({
+                url: $this.attr('action'),
+                type: $this.attr('method'),
+                data: $this.serialize()
+
+            })
+                .done(function(msg){
+                        if(typeof msg['erreur'] !== 'undefined'){
+                              $(":input:not([type=hidden])").val('');
+                              
+                              $("#editInExamen").modal('hide');
+                            
+                              
+                              var notification = alertify.notify(msg['erreur'], 'error', 5, function(){  console.log('dismissed'); });
+                               
+                        }else if(typeof msg['success'] !== 'undefined'){
+                                $(":input:not([type=hidden])").val('');
+                              
+
+                               $("#editInExamen").modal('hide');
+                                 $(".ajs-message.ajs-success").css("background-color", "gold");
+                              $(".ajs-message.ajs-success").css("color", "rgb(103,184,120)");
+                              $(".ajs-message.ajs-success").css("font-weight", "bold");
+                              alertify.set('notifier','position', 'top-right');
+                              alertify.success(msg['success']);
+                             
+                        }
+                        load_tab1();
+                        
+            });
+            
+      });
+ 		 $('#form_mod_inter').on('submit', function(e) {
+        e.preventDefault(); 
+        
+        var $this = $(this);
+        
+        
+            $.ajax({
+                url: $this.attr('action'),
+                type: $this.attr('method'),
+                data: $this.serialize()
+
+            })
+                .done(function(msg){
+                        if(typeof msg['erreur'] !== 'undefined'){
+                              $(":input:not([type=hidden])").val('');
+                              
+                              $("#editInter").modal('hide');
+                            
+                              
+                              var notification = alertify.notify(msg['erreur'], 'error', 5, function(){  console.log('dismissed'); });
+                               
+                        }else if(typeof msg['success'] !== 'undefined'){
+                                $(":input:not([type=hidden])").val('');
+                              
+
+                               $("#editInter").modal('hide');
+                                 $(".ajs-message.ajs-success").css("background-color", "gold");
+                              $(".ajs-message.ajs-success").css("color", "rgb(103,184,120)");
+                              $(".ajs-message.ajs-success").css("font-weight", "bold");
+                              alertify.set('notifier','position', 'top-right');
+                              alertify.success(msg['success']);
+                             
+                        }
+                        load_tab2();
+                        
+            });
+            
+      });
+      $('#form-rendu-del').on('submit', function(e) {
+        
+        e.preventDefault(); 
+        
+        var $this = $(this);
+        
+        
+            $.ajax({
+                url: $this.attr('action'),
+                type: $this.attr('method'),
+                data: $this.serialize()
+
+            })
+                .done(function(msg){
+                        if(typeof msg['erreur'] !== 'undefined'){
+                             
+                              $(":input:not([type=hidden])").val('');
+                              
+                              $("#del_rendu").modal('hide');
+                            
+                              
+                              var notification = alertify.notify(msg['erreur'], 'error', 5, function(){  console.log('dismissed'); });
+                               
+                        }else if(typeof msg['success'] !== 'undefined'){
+                             
+                              $(":input:not([type=hidden])").val('');
+                             
+                               $("#del_rendu").modal('hide');
+                                 $(".ajs-message.ajs-success").css("background-color", "gold");
+                              $(".ajs-message.ajs-success").css("color", "rgb(103,184,120)");
+                              $(".ajs-message.ajs-success").css("font-weight", "bold");
+                              alertify.set('notifier','position', 'top-right');
+                              alertify.success(msg['success']);
+                             
+                        }
+                        load_tab1();
+                        
+            });
+            
+      });
+ 	   $('#form-inter-del').on('submit', function(e) {
+        
+        e.preventDefault(); 
+        
+        var $this = $(this);
+        
+        
+            $.ajax({
+                url: $this.attr('action'),
+                type: $this.attr('method'),
+                data: $this.serialize()
+
+            })
+                .done(function(msg){
+                        if(typeof msg['erreur'] !== 'undefined'){
+                             
+                              $(":input:not([type=hidden])").val('');
+                              
+                              $("#del_inter").modal('hide');
+                            
+                              
+                              var notification = alertify.notify(msg['erreur'], 'error', 5, function(){  console.log('dismissed'); });
+                               
+                        }else if(typeof msg['success'] !== 'undefined'){
+                             
+                              $(":input:not([type=hidden])").val('');
+                             
+                               $("#del_inter").modal('hide');
+                                 $(".ajs-message.ajs-success").css("background-color", "gold");
+                              $(".ajs-message.ajs-success").css("color", "rgb(103,184,120)");
+                              $(".ajs-message.ajs-success").css("font-weight", "bold");
+                              alertify.set('notifier','position', 'top-right');
+                              alertify.success(msg['success']);
+                             
+                        }
+                        load_tab2();
+                        
+            });
+            
+      });
+      
+     $('#tabInExam').on('click', 'a', function(event) {
+              
+          
+          var str =  $(this).attr('id');
+          str = str.split(" ");
+          var i = parseInt(str[0]);
+          
+          if (str[1] == "mod"){
+            $("#editExamen").modal({
+                    keyboard: false,
+                    show : true,
+                    backdrop: "static",
+            });
+            $("#id_type_examen").remove("option");
+            
+            for(var j=0;j < tab_TE.length;j++){
+                 $('#id_type_examen').append($('<option>',
+                 {
+                    value: tab_TE[j].id,
+                    text : tab_TE[j].libelle_type_examen
+                }));
+
+            }
+            $("#code").remove("option");
+            
+            for(var j=0;j < tab_tube.length;j++){
+                 $('#code').append($('<option>',
+                 {
+                    value: tab_tube[j].id,
+                    text : tab_tube[j].libelle_tube
+                }));
+
+            }
+            for(var id = 0; id < tab_examens.length; id++){
+                    
+                    if(tab_examens[id].id == i){
+                      $("#titre").text("Modifier les informations de " + tab_examens[id].libelle_examen);
+                        $('#form_examen #id_hid').val(tab_examens[id].id);  
+
+                        $('#form_examen #libelle_examen').val(tab_examens[id].libelle_examen);
+                        $('#form_examen #abr').val(tab_examens[id].abreviation);
+                       $('#form_examen #quantite').val(tab_examens[id].quantite); 
+                       $('#form_examen #B').val(tab_examens[id].nombre_indexe);    
+                       $('#form_examen #delai').val(tab_examens[id].delai);  
+                       $('#form_examen #ordre').val(tab_examens[id].ordre_examen);
+                       $('#form_examen #code').val(tab_examens[id].code_tube);  
+                       if(tab_examens[id].stat == 'O'){
+                            $("input[name=stat][value=N]").prop('checked', false);
+                            $("input[name=stat][value=O]").prop('checked', true);
+                        }else{
+                                
+                             $("input[name=stat][value=O]").prop('checked', false);   
+                            $("input[name=stat][value=N]").prop('checked', true);
+                        }
+                       if(tab_examens[id].tube_unique == 'O'){
+                            $("input[name=tube_unique][value=N]").prop('checked', false);
+                            $("input[name=tube_unique][value=O]").prop('checked', true);
+                        }else{
+                                
+                             $("input[name=tube_unique][value=O]").prop('checked', false);   
+                            $("input[name=tube_unique][value=N]").prop('checked', true);
+                        }
+                        
+                        
+                    }
+
+            }
+          }else if(str[1] == "sup") {
+              $("#del_examen").modal({
+                    keyboard: false,
+                    show : true,
+                    backdrop: "static",
+              });
+              for(var id = 0; id < tab_examens.length; id++){
+                 if(tab_examens[id].id == i){
+                      $("#t-del").text("Voulez-vous vraiment supprimer " + tab_examens[id].libelle_examen + "?");
+                      $('#form-examen-del #id_sup').val(tab_examens[id].id);  
+                 }
+              }
+               
+          }
+           
+    });
+
+      $(".sk").click(find);
+      $("#fresh").click(function(){
+             
+             $("#seek").val('');
+             load_tab();
+
+
+      });
+     $("#btn_add").click(function(){ 
+
+            $("#titre").text('Ajouter un Examen');
+             $("#id_type_examen").remove("option");
+            
+            for(var j=0;j < tab_TE.length;j++){
+                 $('#id_type_examen').append($('<option>',
+                 {
+                    value: tab_TE[j].id,
+                    text : tab_TE[j].libelle_type_examen
+                }));
+
+            }
+            $("#code").remove("option");
+            
+            for(var j=0;j < tab_tube.length;j++){
+                 $('#code').append($('<option>',
+                 {
+                    value: tab_tube[j].id,
+                    text : tab_tube[j].libelle_tube
+                }));
+
+            }
+            $("#editExamen").modal({
+                    keyboard: false,
+                    show : true,
+                    backdrop: "static",
+            });
+     });
+		</script>
+</div>
